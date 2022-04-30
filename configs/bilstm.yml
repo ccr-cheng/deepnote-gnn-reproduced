@@ -1,0 +1,39 @@
+train:
+  batch_size: 128
+  seed: 42
+  epochs: 50
+  log_freq: 10
+  val_freq: 100
+  save_freq: 100000
+  max_grad_norm: 100.
+  vote_score: false
+  optimizer:
+    type: adam
+    lr: 3.e-3
+    weight_decay: 0.
+    beta1: 0.9
+    beta2: 0.999
+  scheduler:
+    type: step
+    step_size: 100
+    gamma: 1.
+
+datasets:
+  type: seq
+  root: ./data/discharge/
+
+model:
+  type: bilstm
+  vocab_size: 3000000
+  embed_size: 300
+  hidden_size: 128
+  out_size: 2
+  dropout_p: 0.3
+  from_word2vec: true
+  model_dir: ./checkpoints/word2vec/
+
+tokenizer:
+  type: bert
+  model_dir: ./checkpoints/word2vec/
+  max_length: 512
+  return_length: false

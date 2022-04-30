@@ -1,0 +1,33 @@
+train:
+  batch_size: 32
+  seed: 42
+  epochs: 2
+  log_freq: 10
+  val_freq: 200
+  save_freq: 100000
+  max_grad_norm: 100.
+  vote_score: false
+  optimizer:
+    type: adam
+    lr: 2.e-5
+    weight_decay: 0.
+    beta1: 0.9
+    beta2: 0.999
+  scheduler:
+    type: step
+    step_size: 100
+    gamma: 1.
+
+datasets:
+  type: seq
+  root: ./data/discharge/
+
+model:
+  type: clinicalbert
+  model_dir: ./checkpoints/clinicalbert/
+
+tokenizer:
+  type: bert
+  model_dir: ./checkpoints/clinicalbert/
+  max_length: 512
+  return_length: false

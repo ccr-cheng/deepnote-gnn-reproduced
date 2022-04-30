@@ -1,0 +1,30 @@
+train:
+  seed: 42
+  epochs: 200
+  log_freq: 1000
+  val_freq: 1
+  save_freq: 10
+  max_grad_norm: 100.
+  optimizer:
+    type: adam
+    lr: 5.e-3
+    weight_decay: 1.e-3
+    beta1: 0.9
+    beta2: 0.999
+  scheduler:
+    type: step
+    step_size: 100
+    gamma: 1.
+
+datasets:
+  type: graph
+  root: ./data/discharge/
+  threshold: 0.995
+
+model:
+  type: gat
+  input_size: 768
+  hidden_size: 64
+  out_size: 2
+  num_layers: 2
+  dropout_p: 0.5

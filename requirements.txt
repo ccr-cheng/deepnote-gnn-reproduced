@@ -1,0 +1,18 @@
+# pandas is only needed for data preprocessing
+pandas
+
+# utils
+tqdm
+pyyaml
+easydict
+
+# ML framework
+numpy
+scikit-learn
+torch
+torch_geometric
+torch_scatter
+transformers
+
+# gensim is only needed for word2vec model
+# gensim
